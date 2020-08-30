@@ -1,0 +1,44 @@
+#button1{
+    -fx-background-color: linen;
+    -fx-border-color: brown;
+    -fx-border-width:5;
+    -fx-border-radius: 6;
+}
+#button1:focused {
+    -fx-border-color: white;
+}
+ 
+#button1:hover {
+    -fx-border-color: red;
+}
+
+#button1:pressed {
+    -fx-border-color: black;
+}
+
+#textArea {
+    -fx-font-size: 14px;
+    -fx-border-width:5;
+    -fx-border-color: brown;
+}
+
+
+#toolPane {
+	-fx-background-color: linen;
+	-fx-border-color: brown;
+	-fx-border-width:5
+}
+#circleButton{
+    -fx-fill: linen;
+    -fx-border-color: brown;
+    -fx-border-width:5;
+}
+#circleButton:hover {
+    -fx-fill: red;
+}
+#circleButton:pressed {
+    -fx-fill: brown;
+}
+.list-cell:odd {
+    -fx-background-color: linen;
+}
