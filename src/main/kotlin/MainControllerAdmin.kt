@@ -14,7 +14,7 @@ import md5
 import java.util.concurrent.atomic.AtomicLong
 
 
-class MainControllerLogin {
+class MainControllerAdmin {
 
     @FXML lateinit var button1: Button
     @FXML lateinit var accountTable: TableView<Account>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox fx:id="vBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="298.0" prefWidth="354.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+   <children>
+      <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label text="Логин" />
+            <Region minHeight="-Infinity" prefWidth="50.0" />
+            <TextField fx:id="loginField" depthTest="ENABLE" layoutX="155.0" layoutY="63.0" promptText="Введите логин" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" minHeight="-Infinity" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label text="Пароль" />
+            <Region prefWidth="50.0" />
+            <PasswordField fx:id="passField" promptText="Введите пароль" />
+         </children>
+      </HBox>
+      <Button mnemonicParsing="false" onAction="#handleButtonOnPress" prefHeight="26.0" prefWidth="58.0" text="Ok">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>

@@ -6,7 +6,7 @@ import javafx.stage.Stage
 
 class MainMongo : Application() {
 
-    val layout = "main.fxml"
+    val layout = "loginForm.fxml"
 
     override fun start(primaryStage: Stage?) {
         primaryStage?.scene = Scene(load<Parent?>(Main.javaClass.getResource(layout)))
