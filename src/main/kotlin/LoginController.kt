@@ -39,7 +39,7 @@ class LoginController {
 //то загружаем форму с пользовательским содержимым
                 stage.scene = Scene(FXMLLoader.load<Parent?>(Main.javaClass.getResource("user.fxml")))
                 stage.show() //выводим созданное окно на экран
-                val window: Stage = vBox.scene.window as Stage //получаем ссылку на главное окно
+                val window = vBox.scene.window as Stage //получаем ссылку на главное окно
                 window.close() //и закрываем его
             } else println("Pass for ${loginField.text} is NOT valid!")
         }

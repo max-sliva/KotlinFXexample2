@@ -66,7 +66,7 @@ fun getCollectionFromDB(col: String): MongoCollection<Document> {
 fun isUser(user: String): Boolean {
     var userValid = false
     val  userCollection= getCollectionFromDB("User")
-    val docs: ArrayList<Document> = ArrayList<Document>()
+    val docs = ArrayList<Document>()
     val iter = userCollection.find()
     docs.clear()
     iter.into(docs);
@@ -78,7 +78,7 @@ fun isUser(user: String): Boolean {
 fun passForUser(user: String, pass: String): Boolean{
     var passValid = false
     val  userCollection= getCollectionFromDB("User")
-    val docs: ArrayList<Document> = ArrayList<Document>()
+    val docs = ArrayList<Document>()
     val iter = userCollection.find()
     docs.clear()
     iter.into(docs);
