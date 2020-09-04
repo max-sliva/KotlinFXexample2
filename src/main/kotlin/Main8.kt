@@ -4,19 +4,19 @@ import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.stage.Stage
 
-class Main : Application() {
+class Main8 : Application() {
 
-    val layout = "Sample3.fxml"
+    val layout = "ThreadsGUI_3.fxml"
 
     override fun start(primaryStage: Stage?) {
-        primaryStage?.scene = Scene(load<Parent?>(Main.javaClass.getResource(layout)))
+        primaryStage?.scene = Scene(load<Parent?>(Main8.javaClass.getResource(layout)))
         primaryStage?.show()
     }
 
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            launch(Main::class.java)
+            launch(Main8::class.java)
         }
     }
 }

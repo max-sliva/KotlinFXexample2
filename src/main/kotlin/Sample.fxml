@@ -13,7 +13,7 @@
    <top>
       <HBox fx:id="toolPane" alignment="CENTER" prefHeight="80.0" prefWidth="447.0" spacing="30.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="button1" mnemonicParsing="false" onMouseEntered="#handleMouseEnter" text="Button" />
+            <Button fx:id="button1" mnemonicParsing="false" onAction="#handleButtonOnPress" onMouseEntered="#handleMouseEnter" text="Button" />
             <CheckBox mnemonicParsing="false" onAction="#handleCheckChange" onMouseEntered="#handleMouseEnter" text="CheckBox" />
             <Circle fx:id="circleButton" fill="DODGERBLUE" onMouseClicked="#handle" radius="24.0" stroke="BLACK" strokeType="INSIDE" />
          </children>

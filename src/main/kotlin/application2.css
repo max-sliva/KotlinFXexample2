@@ -1,0 +1,37 @@
+.root { 
+    -fx-background-color: aliceblue;
+    -fx-border-color: royalblue;
+    -fx-border-width:5;
+}
+#button1{
+    -fx-background-color: aliceblue;
+    -fx-border-color: royalblue;
+    -fx-border-width:5;
+    -fx-border-radius: 6;
+}
+#button1:focused {
+    -fx-border-color: white;
+}
+ 
+#button1:hover {
+    -fx-border-color: red;
+}
+
+#button1:pressed {
+    -fx-border-color: black;
+}
+
+#textArea {
+    -fx-font-size: 14px;
+    -fx-border-width:5;
+    -fx-border-color: royalblue;
+}
+
+#toolPane {
+	-fx-background-color: aliceblue;
+	-fx-border-color: royalblue;
+	-fx-border-width:5
+}
+
+
+
