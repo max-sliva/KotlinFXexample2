@@ -27,7 +27,7 @@ class Main3 : Application() {
         primaryStage.isResizable = true
         primaryStage.scene = Scene(root, 400.0, 300.0)
         val circle = Circle(250.0, 250.0, 20.0, Color.web("1c89f4")) //создаем круг
-        circle.effect = Lighting() //добавляем эффект
+        circle.effect = javafx.scene.effect.BoxBlur() //добавляем эффект
         timeline = Timeline() // создаем временную шкалу для анимации
         //задаем кол-во повторов анимации, Timeline.INDEFINITE для бесконечной анимации
         timeline!!.cycleCount = 2
@@ -41,18 +41,21 @@ class Main3 : Application() {
         // добавляем ключевые кадры анимации
         // каждый кадр должен характеризоваться временем и ключевым значением
         // ключевое значение – тот параметр объекта, который будет меняться в процессе анимации
-        // в нашем случае это параметр круга, отвечающий за перемещение положение по оси ОХ,
+        // в нашем случае это параметр круга, отвечающий за перемещение положения по оси ОХ,
         // т.е. circle.translateXProperty()
         timeline!!.keyFrames.addAll(
             KeyFrame(
                 Duration.ZERO,  //первый ключевой кадр длится ноль секунд
                 //и содержит ключевой параметр с начальным значением
-                KeyValue(circle.translateXProperty(), 0)
+                KeyValue(circle.translateXProperty(), 0),
+                KeyValue(circle.radiusProperty(), 20)
             ),
             KeyFrame(
                 Duration(1000.0),  //второй ключевой кадр длится секунду
                 // и переносит круг на 205 точек вправо
-                KeyValue(circle.translateXProperty(), 205)
+                KeyValue(circle.translateXProperty(), 205),
+                    KeyValue(circle.radiusProperty(), 100)
+
             )
         )
         root.center = circle //помещаем круг в центр окна

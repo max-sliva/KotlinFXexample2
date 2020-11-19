@@ -6,7 +6,11 @@ import javafx.scene.chart.CategoryAxis
 import javafx.scene.chart.NumberAxis
 import javafx.scene.chart.XYChart
 import javafx.scene.chart.XYChart.Series
+import javafx.scene.control.Button
+import javafx.scene.input.MouseButton
+import javafx.scene.input.MouseEvent
 import javafx.scene.layout.BorderPane
+import javafx.scene.layout.StackPane
 import javafx.stage.Stage
 import java.util.*
 
@@ -21,6 +25,11 @@ class Main4 : Application() {
         val root = BorderPane()
         primaryStage.scene = Scene(root)
         root.center = createChart() //помещаем диаграмму в центр окна
+        val startButton = Button("Start") //кнопка изменения значения столбца в диаграмме
+        startButton.setOnAction{
+            data1?.yValue = data1?.yValue!!.toInt() + 100
+        }
+        root.bottom = startButton //в низ окна вставляем созданную кнопку
     }
 
     private fun createChart(): BarChart<String, Number> { //метод, создающий и возвращающий диаграмму
@@ -32,6 +41,22 @@ class Main4 : Application() {
         yAxis.tickLabelFormatter = NumberAxis.DefaultFormatter(yAxis, "$", null)
         //создаем столбчатую диаграмму с осями xAxis и yAxis
         bc = BarChart(xAxis, yAxis)
+//        bc!!.addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED) { event ->
+//            println("BarChart clicked!")
+//            println(event.getTarget())
+//            if (event.getTarget() is StackPane) {
+//                val tempSP = event.getTarget() as StackPane
+//                val tempStr = (event.getTarget() as StackPane).styleClass.toString()
+//                val serNum = tempStr[tempStr.indexOf("series") + 6].toInt() - 48
+//                //					System.out.println("series"+serNum);
+//                val dataNum = tempStr[tempStr.indexOf("data") + 4].toInt() - 48
+//                //					System.out.println("data"+dataNum);
+////					System.out.println(bc.getData().get(serNum).getData().get(dataNum));
+//                val tempData = bc!!.data[serNum].data[dataNum]
+////                tempData.setYValue((tempData.yValue.toInt() + 100) as Number)
+//            }
+//        }
+
         bc!!.title = "Advanced Bar Chart" // задаем название диаграммы
         xAxis.label = "Year" //задаем общую подпись оси ОХ
         //задаем подписи категорий оси ОХ
@@ -59,12 +84,24 @@ class Main4 : Application() {
         bc!!.data.add(series1) //добавляем созданные наборы в диаграмму
         bc!!.data.add(series2)
         bc!!.data.add(series3)
-        return bc as BarChart<String, Number> //возвращаем созданную диаграмму
+        return bc!!  //возвращаем созданную диаграмму
     }
 
     override fun start(primaryStage: Stage?) {
-        init(primaryStage!!);
-        primaryStage.show();
+        init(primaryStage!!)
+        primaryStage.show()
+        for (serie in bc!!.data) {
+            for (item in serie.data) {
+                item.node.setOnMousePressed {
+                    println("you clicked $item $serie")
+                    if (it.isPrimaryButtonDown) {
+                        item.yValue = item.yValue.toInt() + 100
+                    }
+                    else item.yValue = item.yValue.toInt() - 100
+                }
+            }
+        }
+
     }
 
     companion object {
