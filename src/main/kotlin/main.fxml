@@ -7,7 +7,7 @@
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="268.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainControllerAdmin">
     <children>
-        <Button fx:id="button1" mnemonicParsing="false" onAction="#handleButtonOnPress" text="Show table" />
+        <Button fx:id="button1" mnemonicParsing="false" onAction="#handleAccountOnPress" text="Show table" />
       <TableView fx:id="accountTable" prefHeight="200.0" prefWidth="200.0">
         <columns>
           <TableColumn fx:id="loginCol" prefWidth="75.0" text="Логин" />

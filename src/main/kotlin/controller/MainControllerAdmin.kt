@@ -1,36 +1,38 @@
 package controller
 
 import Account
+import Main
 import addUser
-import getUsers
-import javafx.application.Platform
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
+import javafx.fxml.FXMLLoader
+import javafx.scene.Parent
+import javafx.scene.Scene
 import javafx.scene.control.*
 import javafx.scene.control.ButtonBar.ButtonData
-import javafx.scene.control.cell.PropertyValueFactory
+import javafx.scene.layout.BorderPane
 import javafx.scene.layout.GridPane
+import javafx.scene.layout.VBox
+import javafx.stage.Modality
+import javafx.stage.Stage
 import md5
-import java.util.concurrent.atomic.AtomicLong
 
 
 class MainControllerAdmin {
 
     @FXML lateinit var button1: Button
-    @FXML lateinit var accountTable: TableView<Account>
-    @FXML lateinit var loginCol: TableColumn<Account, String>
-    @FXML lateinit var fioCol: TableColumn<Account, String>
-    @FXML lateinit var statusCol: TableColumn<Account, String>
-    @FXML lateinit var passCol: TableColumn<Account, String>
+    @FXML lateinit var mainPane: VBox
 
     @FXML //обязательное указание
-    private fun handleButtonOnPress(event: ActionEvent) { // import javafx.event.ActionEvent;
+    private fun handleAccountOnPress(event: ActionEvent) { // import javafx.event.ActionEvent;
         println("Hello")
-        loginCol.cellValueFactory = PropertyValueFactory("login")
-        fioCol.cellValueFactory = PropertyValueFactory("fio")
-        statusCol.cellValueFactory = PropertyValueFactory("status")
-        passCol.cellValueFactory = PropertyValueFactory("pass")
-        accountTable.items = getUsers() //загружаем все из data в таблицу на окне
+        val root = FXMLLoader.load<Parent>(Main.javaClass.getResource("table.fxml"))
+//        val stage = Stage()
+//        stage.scene = Scene(root)
+//        stage.initModality(Modality.WINDOW_MODAL)
+//        stage.initOwner(mainPane.scene.window)
+//        stage.show()
+        mainPane.children.add(root)
     }
 
     @FXML
@@ -66,7 +68,9 @@ class MainControllerAdmin {
         if (result.isPresent) {
             println("Result: " + result.get())
             addUser(result.get())
-            accountTable.items = getUsers()
+            mainPane.children.removeAt(mainPane.children.size-1)
+            handleAccountOnPress(ActionEvent())
+//            accountTable.items = getUsers()
         }
     }
 
