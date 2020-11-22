@@ -4,19 +4,19 @@ import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.stage.Stage
 
-class Main9 : Application() {
+class Main10 : Application() {
 
-    val layout = "Sockets.fxml"
+    val layout = "Sockets2.fxml"
 
     override fun start(primaryStage: Stage?) {
-        primaryStage?.scene = Scene(load<Parent?>(Main9.javaClass.getResource(layout)))
+        primaryStage?.scene = Scene(load<Parent?>(Main10.javaClass.getResource(layout)))
         primaryStage?.show()
     }
 
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            launch(Main9::class.java)
+            launch(Main10::class.java)
         }
     }
 }

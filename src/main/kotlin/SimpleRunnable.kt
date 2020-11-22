@@ -12,7 +12,7 @@ class SimpleRunnable(private val s: String) : Runnable {
                 return
             }
         }
-        Thread.currentThread().interrupt() //прерываем поток
+//        Thread.currentThread().interrupt() //прерываем поток
     }
     fun stopThread() { //метод для остановки потока
         stopped = true

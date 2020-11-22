@@ -43,7 +43,7 @@ class ThreadsGUIController2 {
     @FXML //обрабатываем нажатие на кнопку PauseA, для PauseB аналогичный код
     private fun handleOnPauseA(e: ActionEvent) {
         val button = e.source as Button //получаем ссылку на нажатую кнопку
-        when (button.getText()) {
+        when (button.text) {
             "PauseA" -> {
                 threadA.suspendThread() //то ставим поток на паузу
                 button.setText("ResumeA") //и делаем надпись ResumeA
